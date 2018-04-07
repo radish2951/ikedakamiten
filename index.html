@@ -202,7 +202,72 @@ ul li {
 const header = document.getElementById('header');
 const mainImage = document.getElementById('main-image');
 mainImage.style.height = window.innerHeight - header.clientHeight + 'px';
+
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+mainImage.appendChild(overlay);
+overlay.style.width = '100%';
+overlay.style.height = '100%';
+
+
+const imageList = [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Akita_Kanto_Festival_2017.jpg/1920px-Akita_Kanto_Festival_2017.jpg',
+    'https://upload.wikimedia.org/wikipedia/ja/d/d5/Hiru_kanto_1.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Tokyo_Dome3.jpg/1280px-Tokyo_Dome3.jpg'
+];
+
+const imageCount = imageList.length;
+const duration = 4000;
+const transition = 800;
+
+const loadImage = url => {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => resolve();
+        xhr.onerror = () => reject();
+        xhr.open('GET', url);
+        xhr.send();
+    });
+};
+
+const loadAllImages = imageList => {
+    const promiseList = imageList.map(url => {
+        return loadImage(url);
+    });
+    return Promise.all(promiseList);
+};
+
+const slideshow = () => {
+
+let index = 0;
+
+window.setInterval(() => {
+    mainImage.style.backgroundImage = `url(${imageList[index]})`;
+    overlay.classList.toggle('show');
+    window.setTimeout(() => {
+        overlay.classList.toggle('show');
+    }, duration - transition);
+    index = (index + 1) % imageCount;
+}, duration);
+
+};
+loadAllImages(imageList).then(() => {
+    slideshow();
+    console.log('Done');
+});
             </script>
+            <style>
+#main-image .overlay {
+    background: white;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 800ms;
+}
+
+#main-image .overlay.show {
+    opacity: 0;
+}
+            </style>
             <div id="products">
                 <ul>
                     <li>提灯</li>
