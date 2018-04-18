@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: Helvetica, "Yu GothiC";
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 30px auto;
+}
+
+#company-name {
+    font-family: "Sawarabi Mincho";
+}
+
+#company-name p {
+    margin: 0;
+}
+
+#company-name p:nth-child(1) {
+    font-size: 50px;
+}
+
+#company-name p:nth-child(2) {
+    font-size: 16px;
+}
+
+#company-profile p {
+    margin: 0;
+}
+
+#menu {
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#menu ul {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#menu ul li {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+#header.fixed {
+    margin-bottom: 80px;
+}
+
+#header.fixed #menu {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+
+#main-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+#main-image img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.message {
+    padding: 200px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.message div {
+    text-align: center;
+    width: 100%;
+}
+
+.message h1 {
+    font-size: 70px;
+}
+
+.message p {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+#products ul {
+    display: flex;
+}
+
+#products ul li {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#products ul li:nth-child(1) {
+    background-image: url(http://blog-imgs-70.fc2.com/k/f/1/kf1955story/2005_ph21.jpg);
+}
+
+#products ul li:nth-child(3) {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/71WIjiuBxaL._SL1500_.jpg);
+}
+
+#products ul li:nth-child(2) {
+    background-image: url(https://ssl.runon.co.jp/disney/fusumakami/images/ph752l.jpg);
+}
+
+#news {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#news article {
+    width: 40%;
+    min-height: 500px;
+    margin: 20px 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#footer {
+    background: gray;
+    color: white;
+    padding-top: 30px;
+}

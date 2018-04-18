@@ -7,163 +7,8 @@
         <meta name="robots" content="noindex">
 
         <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet">
 
-        <style>
-
-body {
-    margin: 0;
-    font-family: Helvetica, "Yu GothiC";
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#header-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-top: 30px;
-}
-
-#company-name {
-    font-family: "Sawarabi Mincho";
-}
-
-#company-name p {
-    margin: 0;
-}
-
-#company-name p:nth-child(1) {
-    font-size: 50px;
-}
-
-#company-name p:nth-child(2) {
-    font-size: 16px;
-}
-
-#company-profile p {
-    margin: 0;
-}
-
-#menu {
-    width: 100%;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    padding: 14px 0;
-    background: rgba(0, 0, 0, 0.9);
-}
-
-#menu ul {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#menu ul li {
-    font-size: 16px;
-    font-weight: bold;
-    /*
-    border-bottom: 1px solid orange;
-    */
-    color: white;
-}
-
-#main-image {
-    height: 500px;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Akita_Kanto_Festival_2017.jpg/1920px-Akita_Kanto_Festival_2017.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.message {
-    padding: 200px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.message div {
-    text-align: center;
-    width: 100%;
-}
-
-.message h1 {
-    font-size: 70px;
-}
-
-.message p {
-    width: 60%;
-    margin: 0 auto;
-    font-size: 20px;
-}
-
-#products ul {
-    display: flex;
-}
-
-#products ul li {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#products ul li:nth-child(1) {
-    background-image: url(http://blog-imgs-70.fc2.com/k/f/1/kf1955story/2005_ph21.jpg);
-}
-
-#products ul li:nth-child(3) {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/71WIjiuBxaL._SL1500_.jpg);
-}
-
-#products ul li:nth-child(2) {
-    background-image: url(https://ssl.runon.co.jp/disney/fusumakami/images/ph752l.jpg);
-}
-
-#news {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#news article {
-    width: 40%;
-    min-height: 500px;
-    margin: 20px 0;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#footer {
-    background: gray;
-    color: white;
-    padding-top: 30px;
-}
-
-        </style>
     </head>
     <body>
 
@@ -199,75 +44,76 @@ ul li {
                 </div>
             </div>
             <script>
-const header = document.getElementById('header');
+
 const mainImage = document.getElementById('main-image');
-mainImage.style.height = window.innerHeight - header.clientHeight + 'px';
-
-const overlay = document.createElement('div');
-overlay.classList.add('overlay');
-mainImage.appendChild(overlay);
-overlay.style.width = '100%';
-overlay.style.height = '100%';
-
-
 const imageList = [
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Akita_Kanto_Festival_2017.jpg/1920px-Akita_Kanto_Festival_2017.jpg',
     'https://upload.wikimedia.org/wikipedia/ja/d/d5/Hiru_kanto_1.jpg',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Tokyo_Dome3.jpg/1280px-Tokyo_Dome3.jpg'
 ];
 
-const imageCount = imageList.length;
-const duration = 4000;
-const transition = 800;
+const animationDuration = 0.7;
+const n = imageList.length;
 
-const loadImage = url => {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.onload = () => resolve();
-        xhr.onerror = () => reject();
-        xhr.open('GET', url);
-        xhr.send();
-    });
-};
+for (let i = 0; i < n; i++) {
+    const image = document.createElement('img');
+    image.setAttribute('src', imageList[i]);
+    mainImage.appendChild(image);
+    image.style.animationDelay = 4 * i * animationDuration + 's';
+    image.style.zIndex = n - i;
+}
 
-const loadAllImages = imageList => {
-    const promiseList = imageList.map(url => {
-        return loadImage(url);
-    });
-    return Promise.all(promiseList);
-};
 
-const slideshow = () => {
+const animationStyle = document.createElement('style');
+document.head.appendChild(animationStyle);
+animationStyle.innerHTML = `
+#main-image img {
+    animation: ${animationDuration * 4 * n}s infinite slideshow;
+}
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+    }
+    ${0.20 * 100 / n}% {
+        opacity: 1;
+    }
+    ${0.50 * 100 / n}% {
+        opacity: 1;
+    }
+    ${0.80 * 100 / n}% {
+        opacity: 1;
+    }
+    ${1.00 * 100 / n}% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+`;
 
-let index = 0;
+const header = document.getElementById('header');
+const menu = document.getElementById('menu');
 
-window.setInterval(() => {
-    mainImage.style.backgroundImage = `url(${imageList[index]})`;
-    overlay.classList.toggle('show');
-    window.setTimeout(() => {
-        overlay.classList.toggle('show');
-    }, duration - transition);
-    index = (index + 1) % imageCount;
-}, duration);
+const menuDefaultTop = menu.offsetTop;
 
-};
-loadAllImages(imageList).then(() => {
-    slideshow();
-    console.log('Done');
+window.addEventListener('scroll', () => {
+    if (scrollY > menuDefaultTop) {
+        if (!header.classList.contains('fixed')) {
+            header.classList.add('fixed');
+        } 
+    } else {
+        header.classList.remove('fixed');
+    }
 });
-            </script>
-            <style>
-#main-image .overlay {
-    background: white;
-    opacity: 1;
-    transition-property: opacity;
-    transition-duration: 800ms;
-}
 
-#main-image .overlay.show {
-    opacity: 0;
-}
-            </style>
+mainImage.style.height = window.innerHeight - header.offsetHeight + 'px';
+
+
+
+
+            </script>
+
             <div id="products">
                 <ul>
                     <li>提灯</li>
