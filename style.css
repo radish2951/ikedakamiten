@@ -14,7 +14,16 @@ ul li {
     padding: 0;
 }
 
+#header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
 #header-content {
+    display: none;
+    /*
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -22,6 +31,7 @@ ul li {
     width: 100%;
     max-width: 900px;
     margin: 30px auto 30px auto;
+    */
 }
 
 #company-name {
@@ -67,79 +77,101 @@ ul li {
     color: white;
 }
 
-#header.fixed {
-    margin-bottom: 80px;
-}
-
-#header.fixed #menu {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-}
-
 #main-image {
     position: relative;
-    height: 500px;
     overflow: hidden;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Akita_Kanto_Festival_2017.jpg/1920px-Akita_Kanto_Festival_2017.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#main-image img {
-    position: absolute;
-    top: 0;
-    width: 100%;
+#company-profile {
+    font-family: "Sawarabi Mincho";
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 50px;
 }
 
-.message {
-    padding: 200px 0;
+#company-profile h1 {
+    font-size: 160px;
+    font-weight: normal;
+    letter-spacing: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+#company-profile p {
+    font-size: 20px;
+    letter-spacing: 6px;
+}
+
+#message {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-.message div {
+#message div {
     text-align: center;
     width: 100%;
 }
 
-.message h1 {
-    font-size: 70px;
-}
-
-.message p {
+#message p {
     width: 60%;
     margin: 0 auto;
     font-size: 20px;
 }
 
+h1.section-title {
+    font-size: 90px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+#products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 #products ul {
     display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #products ul li {
     width: 100%;
-    height: 300px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-#products ul li:nth-child(1) {
-    background-image: url(http://blog-imgs-70.fc2.com/k/f/1/kf1955story/2005_ph21.jpg);
+#products ul li img {
+    width: 240px;
+    height: 240px;
+    border-radius: 120px;
+    display: block;
 }
 
-#products ul li:nth-child(3) {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/71WIjiuBxaL._SL1500_.jpg);
-}
-
-#products ul li:nth-child(2) {
-    background-image: url(https://ssl.runon.co.jp/disney/fusumakami/images/ph752l.jpg);
+#products ul li h1 {
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: 32px;
+    font-weight: normal;
 }
 
 #news {
