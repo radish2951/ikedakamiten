@@ -89,23 +89,32 @@ ul li {
 }
 
 #company-profile {
-    font-family: "Sawarabi Mincho";
+    font-family: "Yu Mincho";
     color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: right;
+    padding: 50px 100px;
+    margin: auto;
+
+    width: 600px;
+
+    writing-mode: vertical-rl;
+    position: relative;
+
+    line-height: 80px;
+
 }
 
 #company-profile h1 {
-    font-size: 160px;
+    font-size: 50px;
     font-weight: normal;
-    letter-spacing: 50px;
     margin: 0;
-    text-align: center;
+    letter-spacing: 8px;
+
 }
 
 #company-profile p {
-    font-size: 20px;
+    font-size: 14px;
     letter-spacing: 6px;
 }
 
