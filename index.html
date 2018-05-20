@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
+
     <head>
         <meta charset="utf-8">
-        <title>有限会社 池田紙店</title>
+        <title>有限会社 池田紙店 公式ウェブサイト</title>
 
         <meta name="robots" content="noindex">
 
@@ -10,20 +11,10 @@
         <link href="style.css" rel="stylesheet">
 
     </head>
+
     <body>
 
         <header id="header">
-            <div id="header-content">
-            <div id="company-name">
-                <p>有限会社 池田紙店</p>
-                <p>Ikeda Kamiten Co.,Ltd.</p>
-            </div>
-            <div id="company-profile">
-                <p>010-0921</p>
-                <p>秋田県秋田市大町1-5-30</p>
-                <p>018-862-4617</p>
-            </div>
-            </div>
             <nav id="menu">
                 <ul>
                     <li>トップ</li>
@@ -37,74 +28,99 @@
 
         <div id="content">
             <div id="main-image" class="full">
-                <div id="company-profile">
+                <div class="full-inner">
+                <div id="company-name">
                     <h1>有限会社 池田紙店</h1>
                     <p>Ikeda Kamiten Co.,Ltd.</p>
                     <!--
-                    <p>010-0921</p>
-                    <p>秋田県秋田市大町1-5-30</p>
-                    <p>018-862-4617</p>
                     -->
+                </div>
                 </div>
             </div>
             <div id="message" class="full">
-                <div>
-                    <h1 class="section-title">秋田の魂を、世界へ。</h1>
+                <div class="full-inner">
+                    <h1 class="section-title">秋田の魂を、未来へ。</h1>
                     <p>秋田県秋田市に古くから伝わる伝統「秋田竿燈まつり」。私たちはその担い手として、提灯づくりを通じ、伝統を守り、受け継いでいます。</p>
+                    <p>襖紙・障子紙など各種表装材料も豊富に取り扱っております。伝統と現代の美が調和したインテリアを、お客様のニーズに合わせてご提案いたします。</p>
                 </div>
             </div>
 
             <div id="products" class="full">
+                <div class="full-inner">
                 <h1 class="section-title">製品</h1>
                 <ul>
                     <li>
                         <img src="http://blog-imgs-70.fc2.com/k/f/1/kf1955story/2005_ph21.jpg">
                         <h1>提灯</h1>
-                        <p></p>
+                        <p>秋田竿燈まつりで使用される提灯です。オーダーメイドにも対応いたします。世界に1つしかない提灯を作ってみませんか？</p>
                     </li>
                     <li>
                         <img src="https://ssl.runon.co.jp/disney/fusumakami/images/ph752l.jpg">
-                        <h1>ふすま</h1>
-                        <p></p>
+                        <h1>襖（ふすま）</h1>
+                        <p>和室の内装には欠かせない襖。約700種類の襖の中からお気に入りのデザインを見つけてみてください。</p>
                     </li>
                     <li>
                         <img src="https://images-na.ssl-images-amazon.com/images/I/71WIjiuBxaL._SL1500_.jpg">
                         <h1>障子紙</h1>
-                        <p></p>
+                        <p>破れにくい障子紙など機能性に優れたもののほか、各種表装材料も取り扱っております。</p>
                     </li>
                 </ul>
+                </div>
+                <script>
+const imgs = document.querySelectorAll('#products img');
+const lis = document.querySelectorAll('#products li');
+for (let i = 0; i < lis.length; i++) {
+    imgs[i].style.height = lis[i].clientWidth + 'px';
+}
+                </script>
             </div>
-            <div id="news">
+            <div id="news" class="full">
+                <div class="full-inner">
                 <h1 class="section-title">ニュース</h1>
+                <ul id="news-index">
+                    <li class="single-news">
                 <article>
                     <h1>ウェブサイトをオープンしました！</h1>
                     <p>2018年4月1日</p>
                     <p>こんにちは。これは仮のテキストです。これは仮のテキストです。これは仮のテキストです。</p>
                 </article>
+                    </li>
+                    <li class="single-news">
                 <article>
                     <h1>お盆休みのお知らせ</h1>
                     <p>2018年5月1日</p>
                     <p>お盆休みを取得します。お盆休みを取得します。お盆休みを取得します。お盆休みを取得します。</p>
                 </article>
+                    </li>
+                </ul>
+                </div>
             </div>
         </div>
 
         <footer id="footer">
+            <div id="footer-contents">
             <nav id="footer-menu">
                 <ul>
-                    <li>Top</li>
-                    <li>Products</li>
-                    <li>Kanto</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
+                    <li>トップ</li>
+                    <li>製品</li>
+                    <li>秋田竿燈まつり</li>
+                    <li>ブログ</li>
+                    <li>お問い合わせ</li>
                 </ul>
             </nav>
+            <div id="footer-company-information">
+                <h1>有限会社 池田紙店</h1>
+                <p>010-0921</p>
+                <p>秋田県秋田市大町1-5-30</p>
+                <p>018-862-4617</p>
+            </div>
+            </div>
         </footer>
 
         <script>
 const fullSections = document.getElementsByClassName('full');
-for (const full of fullSections) {
-    full.style.height = window.innerHeight + 'px';
+for (let i = 0; i < fullSections.length; i++) {
+    fullSections[i].style.height = window.innerHeight + 'px';
 }
         </script>
     </body>
