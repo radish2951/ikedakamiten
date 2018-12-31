@@ -156,6 +156,18 @@ ul li {
     font-size: 60px;
 }
 
+#products section .product-detail a {
+    background: brown;
+    padding: 12px;
+    display: block;
+    margin: 50px auto auto auto;
+    width: 180px;
+    text-align: center;
+    font-size: 21px;
+    color: white;
+    text-decoration: none;
+}
+
 #products section#fusuma {
     flex-flow: row-reverse;
 }
@@ -220,13 +232,5 @@ ul li {
 #footer #footer-contents #footer-company-information p {
     font-size: 16px;
 }
-
-
-
-
-
-
-
-
 
 
